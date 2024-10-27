@@ -17,13 +17,34 @@ class TestCases(unittest.TestCase):
         self.assertEqual(19, time.minute)
         self.assertEqual(45, time.second)
 
-
+# Start of Lab 5 Work
+########################################################################################################################
     #### Add tests for Time.__eq__
 
+    def test_Time_eq1(self):
+        time1 = data.Time(1,23,45)
+        time2 = data.Time(1,23,45)
+        self.assertEqual(time1,time2)
+
+
+    # test for not equal
+    def test_Time_eq2(self):
+        time1 = data.Time(1,23,45)
+        time2 = data.Time(1,23,46)
+        self.assertNotEqual(time1,time2)
+
+
     #### Add tests for Time.__repr__
+    def test_Time_repr1(self):
+        test_time = data.Time(1,23,45)
+        self.assertEqual('Time(1,23,45)',repr(test_time))
 
+    # test a data representation that should not work to  be certain
+    def test_Time_repr2(self):
+        test_time = data.Time(1,23,0)
+        self.assertNotEqual('1,23,0',repr(test_time))
 
-
+#######################################################################################################################
 
     #### Point tests
     def test_Point_1(self):
